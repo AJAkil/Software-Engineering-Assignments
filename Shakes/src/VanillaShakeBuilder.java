@@ -88,10 +88,10 @@ public class VanillaShakeBuilder extends Shakes {
 
         if(extraMessage!=null){
 
-            shakeproduct.addComponent("Price: "+Integer.toString(price)+"\n"+extraMessage);
+            shakeproduct.addComponent("Price:Tk "+Integer.toString(price)+"\n"+extraMessage);
         }else{
 
-            shakeproduct.addComponent("Price: "+Integer.toString(price));
+            shakeproduct.addComponent("Price:Tk "+Integer.toString(price));
         }
 
     }
