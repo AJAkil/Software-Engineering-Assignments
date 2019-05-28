@@ -47,6 +47,11 @@ public class StrawberryShakeBuilder extends Shakes {
 
 
     @Override
+    void addName() {
+        shakeproduct.addComponent("Strawberry_Shake");
+    }
+
+    @Override
     void addPrice() {
 
         String extraMessage = null;

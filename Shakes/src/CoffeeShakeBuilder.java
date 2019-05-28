@@ -47,6 +47,11 @@ public class CoffeeShakeBuilder extends Shakes {
     }
 
     @Override
+    void addName() {
+        shakeproduct.addComponent("Coffee_Shake");
+    }
+
+    @Override
     void addPrice() {
 
         String extraMessage = null;

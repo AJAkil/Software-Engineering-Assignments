@@ -9,6 +9,7 @@ abstract class Shakes {
     protected String topping2;
 
 
+    abstract void addName();
     abstract void addMilk();
     abstract void addIng1();
     abstract void addIng2();

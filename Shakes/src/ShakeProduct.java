@@ -32,7 +32,7 @@ public class ShakeProduct {
 
         String temp = ShakeComponents.get(ShakeComponents.size()-1);
 
-        temp = temp.substring(7,10);
+        temp = temp.substring(9,12);
 
         return Integer.parseInt(temp);
 

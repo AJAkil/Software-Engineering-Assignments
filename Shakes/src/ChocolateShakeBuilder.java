@@ -32,6 +32,11 @@ public class ChocolateShakeBuilder extends Shakes {
     }
 
     @Override
+    void addName() {
+        shakeproduct.addComponent("Chocolate_Shake");
+    }
+
+    @Override
     void addPrice() {
 
         String extraMessage = null;

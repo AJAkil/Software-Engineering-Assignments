@@ -48,6 +48,11 @@ public class ZeroShakeBuilder extends Shakes {
     }
 
     @Override
+    void addName() {
+        shakeproduct.addComponent("Zero_Shake");
+    }
+
+    @Override
     void addPrice() {
 
         String extraMessage = null;

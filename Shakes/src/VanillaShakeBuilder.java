@@ -11,6 +11,11 @@ public class VanillaShakeBuilder extends Shakes {
     }
 
     @Override
+    void addName() {
+        shakeproduct.addComponent("Vanilla_Shake");
+    }
+
+    @Override
     void addMilk() {
         shakeproduct.addComponent("Milk: "+milk);
     }
