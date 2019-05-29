@@ -12,7 +12,6 @@ public class Director {
         shakebuilder.addIng2();
         shakebuilder.addSweet();
         shakebuilder.addTopping1();
-        shakebuilder.addTopping2();
         shakebuilder.addPrice();
 
     }

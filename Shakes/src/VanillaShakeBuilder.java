@@ -41,11 +41,6 @@ public class VanillaShakeBuilder extends Shakes {
     }
 
     @Override
-    void addTopping2() {
-        shakeproduct.addComponent(topping2);
-    }
-
-    @Override
     ShakeProduct getShakeProduct() {
         return shakeproduct;
     }
@@ -55,15 +50,7 @@ public class VanillaShakeBuilder extends Shakes {
 
         String extraMessage = null;
 
-        if(topping1!=null && topping2!=null && milk.equalsIgnoreCase("regular")){
-
-            extraMessage = "Increase of Price by 90Tk due to candy(50Tk) and cookie(40Tk) toppings.";
-
-        }else if(topping1!=null && topping2!=null && milk.equalsIgnoreCase("almond milk")){
-
-            extraMessage = "Increase of Price by 150Tk due to Almond Milk(60Tk) and candy(50Tk) and cookie(40Tk) toppings.";
-
-        }else if(topping1!=null && milk.equalsIgnoreCase("regular")){
+        if(topping1!=null && milk.equalsIgnoreCase("regular")){
 
             if(topping1.equalsIgnoreCase("candy")){
 
@@ -106,7 +93,7 @@ public class VanillaShakeBuilder extends Shakes {
 
         if(milktype.equalsIgnoreCase("Regular")){
 
-            this.price = 230;
+            this.price = 190;
             this.milk = "Regular";
 
 
@@ -144,36 +131,6 @@ public class VanillaShakeBuilder extends Shakes {
                 System.out.println("Sorry,your choice is not available. Please choose from the listings");
             }
 
-        }else if(topping1!=null && topping2==null){
-
-            if(topping1.equalsIgnoreCase(toppings)){
-
-                System.out.println("You have already added this topping");
-
-            }else{
-
-                if(toppings.equalsIgnoreCase("candy")){
-
-                    this.topping2 = "candy";
-                    this.price = this.price+50;
-
-
-                }else if(toppings.equalsIgnoreCase("cookie")){
-
-                    this.topping2 = "cookie";
-                    this.price = this.price+40;
-
-                }else{
-
-                    System.out.println("Sorry,your choice is not available. Please choose from the listings");
-                }
-            }
-
-
-        }else if(topping1!=null && topping2!=null){
-
-            System.out.println("You have already added maximum topping");
         }
-
     }
 }

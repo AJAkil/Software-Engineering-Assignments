@@ -5,7 +5,7 @@ public class Client {
 
     public static void Options(){
 
-        System.out.println("Press Q to quit the menu");
+        System.out.println("Press Q to quit the this menu");
         System.out.println("Press O to start an order");
         System.out.println("Press E to end an order");
 
@@ -13,7 +13,9 @@ public class Client {
 
     public static void shakesMenu(){
 
-        System.out.println("You have to place an order before closing it.Here are the choices:"+"\n");
+        System.out.println("Here are the choices:"+"\n");
+        System.out.println("NB: YOU CANNOT CHANGE AN ORDER ONCE IT IS PLACED.");
+        System.out.println("################ MENU ################"+"\n");
         System.out.println("SHAKE               PRICE(base Price)");
         System.out.println("1.Chocolate_Shake   Tk 230");
         System.out.println("2.Coffee_Shake      Tk 230");
@@ -21,7 +23,9 @@ public class Client {
         System.out.println("4.Vanilla_Shake     Tk 190");
         System.out.println("5.Zero_Shake        Tk 240");
         System.out.println();
-        System.out.println("Press the corresponding number of the shake you want to order.Press E to end order.Press Q to Quit the shake menu after placing an order");
+        System.out.println("Press the corresponding number of the shake you want to order.");
+        System.out.println("Press E to end order.Press P to Quit the shake menu after Ending an order."+"\n");
+        System.out.println("################ xxxx ################");
 
     }
 
@@ -29,7 +33,7 @@ public class Client {
 
         System.out.println("Here are your milk options:");
         System.out.println("1.Regular");
-        System.out.println("2.Almond Milk"+"\n");
+        System.out.println("2.Almond Milk");
     }
 
     public static void toppingOptions(){
@@ -49,7 +53,7 @@ public class Client {
 
         System.out.println("If you are lactose Intolerant you can go for Almond Milk(adds 60Tk per shake)");
         System.out.println("Do you want to make shake lactose free?");
-        System.out.println("Press Y for YES N for NO"+"\n");
+        System.out.println("Press Y for YES N for NO");
 
 
 
@@ -57,30 +61,33 @@ public class Client {
 
             menuChoice = scannerObj.nextLine();
 
-            if(menuChoice.equalsIgnoreCase("y")){
+            if(menuChoice.equals("Y")){
 
                 shakeobj.changeMilk("Almond milk");
+                System.out.println();
+                System.out.println("you have chosen Almond milk. Your shake is now lactose free."+"\n");
                 break;
 
-            }else if(menuChoice.equalsIgnoreCase("n")){
+            }else if(menuChoice.equals("N")){
 
                 shakeobj.changeMilk("regular");
                 break;
 
             }else{
-                System.out.println("Wrong Choice. Please try again.");
+                System.out.println("Wrong Choice. Please try again."+"\n");
             }
 
         }
 
     }
 
-    public static void addingTopings(Shakes shakeobj){
+    public static void addingToppings(Shakes shakeobj){
 
         Scanner scannerObj = new Scanner(System.in);
         String menuChoice;
+        boolean toppings = false;
 
-        System.out.println("Do you want to add Toppings?");
+        System.out.println("You can add a single topping to the shake. Do you want to add one?");
 
         System.out.println("Press Y for YES N for NO");
 
@@ -88,39 +95,51 @@ public class Client {
 
             menuChoice = scannerObj.nextLine();
 
-            if(menuChoice.equalsIgnoreCase("y")){
+            if(menuChoice.equals("Y")){
 
-                toppingOptions();
+                while(true){
 
-                menuChoice  = scannerObj.nextLine();
+                    toppingOptions();
 
-                if(menuChoice.equalsIgnoreCase("1")){
+                    menuChoice  = scannerObj.nextLine();
 
-                    shakeobj.Toppings("candy");
-                    break;
+                    if(menuChoice.equalsIgnoreCase("1")){
 
-                }else if(menuChoice.equalsIgnoreCase("2")){
+                        shakeobj.Toppings("candy");
+                        System.out.println("You Have chosen Candy as your topping.");
+                        System.out.println("Your order is recorded."+"\n");
+                        toppings = true;
+                        break;
 
-                    shakeobj.Toppings("cookie");
-                    break;
+                    }else if(menuChoice.equalsIgnoreCase("2")){
 
-                }else{
+                        shakeobj.Toppings("cookie");
+                        System.out.println("You have chosen Cookie as your topping.");
+                        System.out.println("Your order is recorded."+"\n");
+                        toppings = true;
+                        break;
 
-                    System.out.println("Wrong Choice. Please try again");
+                    }else{
+
+                        System.out.println("Wrong Choice. Please try again!"+"\n");
+                    }
                 }
 
-            }else if(menuChoice.equalsIgnoreCase("n")){
+            }else if(menuChoice.equals("N")){
 
-                System.out.println("Your order is recorded");
+                System.out.println("Your order is recorded."+"\n");
                 break;
 
             }else{
 
-                System.out.println("Wrong Choice. Please try again!");
+                System.out.println("Wrong Choice. Please try again!"+"\n");
             }
+
+            if(toppings) break;
         }
 
     }
+
 
     public static void main(String[] args) {
 
@@ -135,9 +154,9 @@ public class Client {
 
         Scanner scannerObj = new Scanner(System.in);
 
-        while (true){
+        System.out.println("Welcome To ShakeShack!!!"+"\n");
 
-            System.out.println("Welcome To ShakeShack!!");
+        while (true){
 
             Options();
 
@@ -145,6 +164,7 @@ public class Client {
 
             if(menuChoice.equals("Q")){
 
+                System.out.println("Thanks for the visit. We hope you had a great shake!!");
                 break;
 
             }else if(menuChoice.equals("O")){
@@ -161,11 +181,8 @@ public class Client {
                         countOrder++;
 
                         milkOptions();
-
                         addingMilk(shakeobj);
-
-                        addingTopings(shakeobj);
-
+                        addingToppings(shakeobj);
                         Orders.add(shakeobj);
                         director.produceShake(shakeobj);
 
@@ -177,8 +194,7 @@ public class Client {
 
                         milkOptions();
                         addingMilk(shakeobj);
-                        addingTopings(shakeobj);
-
+                        addingToppings(shakeobj);
                         Orders.add(shakeobj);
                         director.produceShake(shakeobj);
 
@@ -190,8 +206,7 @@ public class Client {
 
                         milkOptions();
                         addingMilk(shakeobj);
-                        addingTopings(shakeobj);
-
+                        addingToppings(shakeobj);
                         Orders.add(shakeobj);
                         director.produceShake(shakeobj);
 
@@ -203,8 +218,7 @@ public class Client {
 
                         milkOptions();
                         addingMilk(shakeobj);
-                        addingTopings(shakeobj);
-
+                        addingToppings(shakeobj);
                         Orders.add(shakeobj);
                         director.produceShake(shakeobj);
 
@@ -216,8 +230,7 @@ public class Client {
 
                         milkOptions();
                         addingMilk(shakeobj);
-                        addingTopings(shakeobj);
-
+                        addingToppings(shakeobj);
                         Orders.add(shakeobj);
                         director.produceShake(shakeobj);
 
@@ -225,11 +238,13 @@ public class Client {
 
                         if(countOrder==0){
 
-                            System.out.println("you have to place at least an order");
+                            System.out.println("You have to place at least an order before closing the order!"+"\n");
 
                         }else{
 
-                            System.out.println("Your Order has been placed.The details are: ");
+                            System.out.println("Your Order has been placed. The details are: ");
+
+                            System.out.println("################ ORDER DETAILS ################"+"\n");
 
                             for(int i =0;i<Orders.size();i++){
 
@@ -243,7 +258,7 @@ public class Client {
                             }
 
                             System.out.println("TOTAL: "+totalBill);
-                            System.out.println();
+                            System.out.println("################ xxxx ################"+"\n");
 
                             checker = countOrder;
                             totalBill = 0;
@@ -255,22 +270,26 @@ public class Client {
 
                     }else if(menuChoice.equals("O")){
 
-                        System.out.println("You cannot open an order while an order is taking place. Do you want to add something to the order?");
-                        System.out.println("Press Y for yes N for no");
+                        System.out.println("You cannot open an order while an order is taking place. Do you want to add something to the order?"+"\n");
+                        System.out.println("Press Y for yes N for no"+"\n");
 
                         menuChoice = scannerObj.nextLine();
 
-                        if(menuChoice.equalsIgnoreCase("y")){
+                        if(menuChoice.equals("Y")){
 
                             continue;
 
-                        }else if(menuChoice.equalsIgnoreCase("n")){
+                        }else if(menuChoice.equals("N")){
 
                             if(countOrder==0){
 
-                                System.out.println("you have to place at least an order"+"\n");
+                                System.out.println("You have to place at least an order"+"\n");
 
                             }else{
+
+                                System.out.println();
+
+                                System.out.println("################ ORDER DETAILS ################"+"\n");
 
                                 System.out.println("Your Order has been placed.The details are: "+"\n");
 
@@ -286,9 +305,10 @@ public class Client {
                                     System.out.println();
                                 }
 
-                                System.out.println("TOTAL: Tk"+totalBill);
-                                System.out.println();
+                                System.out.println("TOTAL: "+totalBill);
+                                System.out.println("################ xxxx ################"+"\n");
 
+                                checker = countOrder;
                                 totalBill = 0;
                                 countOrder = 0;
 
@@ -298,14 +318,28 @@ public class Client {
 
                         }
 
-                    }else if(menuChoice.equals("Q")){
+                    }else if(menuChoice.equals("P")){
 
-                        if(checker!=0) break;
+                        if(checker!=0){
 
+                            checker = 0;
+                            System.out.println("Thanks for Ordering");
+                            break;
+                        }
+                        else System.out.println("You should press E to end order Then quit the menu.");
+
+                    }else{
+
+                        System.out.println("Wrong Choice. Please try again by choosing from the list!");
                     }
                 }
+            }else if(menuChoice.equals("E")){
 
+                System.out.println("Exiting order only works when you enter the ordering menu. Please try again and start ordering with O"+"\n");
 
+            }else{
+
+                System.out.println("Wrong Choice. Please try again by choosing from the list!");
 
             }
 

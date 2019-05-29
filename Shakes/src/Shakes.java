@@ -15,7 +15,6 @@ abstract class Shakes {
     abstract void addIng2();
     abstract void addSweet();
     abstract void addTopping1();
-    abstract void addTopping2();
     abstract void addPrice();
     abstract ShakeProduct getShakeProduct();
     abstract void changeMilk(String milktype);
