@@ -1,7 +1,6 @@
 public class ComputerFactory {
 
     //uses getComputer method to get object of the type Computers
-
     public Computers getComputer(String computerType){
 
         if(computerType.equalsIgnoreCase("ComputerA")){

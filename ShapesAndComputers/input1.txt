@@ -1,1 +1,1 @@
-ComputerA,Rectangle,100,200
+ComputerA,Circle,10
