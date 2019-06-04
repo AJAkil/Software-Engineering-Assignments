@@ -1,12 +1,12 @@
 public class ComputerA extends Computers {
 
-    public ComputerA() {
+    public ComputerA(MemoryA Memory, ProcessorA Processor) {
         this.screenWidth = 200;
         this.screenHeight = 200;
-        this.CPU = new ProcessorA("CPUA");
-
-        this.MMU = new MemoryA();
+        this.CPU = Processor;
+        this.MMU = Memory;
         MMU.setMMUname("MMUA");
+        CPU.setCPUname("CPUA");
     }
 
     @Override
@@ -19,4 +19,13 @@ public class ComputerA extends Computers {
         return this.screenHeight;
     }
 
+    @Override
+    String getCPUname() {
+        return CPU.getCPUname();
+    }
+
+    @Override
+    String getMMUname() {
+        return MMU.getMMUname();
+    }
 }

@@ -1,5 +1,4 @@
-public class ProcessorB extends Processor {
-
+public class ProcessorC extends Processor {
     @Override
     void setCPUname(String CPUname) {
         this.CPUname = CPUname;

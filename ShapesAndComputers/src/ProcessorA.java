@@ -1,6 +1,11 @@
 public class ProcessorA extends Processor {
+    @Override
+    String getCPUname() {
+        return this.CPUname;
+    }
 
-    public ProcessorA(String CPUname) {
-        super(CPUname);
+    @Override
+    void setCPUname(String CPUname) {
+        this.CPUname = CPUname;
     }
 }

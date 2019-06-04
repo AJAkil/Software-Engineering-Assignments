@@ -1,8 +1,12 @@
 public class ComputerB extends Computers {
 
-    public ComputerB() {
+    public ComputerB(MemoryB Memory,ProcessorB Processor) {
         this.screenWidth = 350;
         this.screenHeight = 250;
+        this.MMU = Memory;
+        this.CPU = Processor;
+        MMU.setMMUname("MMUB");
+        CPU.setCPUname("CPUB");
     }
 
     @Override
@@ -13,5 +17,15 @@ public class ComputerB extends Computers {
     @Override
     double getScreenHeight() {
         return this.screenHeight;
+    }
+
+    @Override
+    String getCPUname() {
+        return CPU.getCPUname();
+    }
+
+    @Override
+    String getMMUname() {
+        return MMU.getMMUname();
     }
 }

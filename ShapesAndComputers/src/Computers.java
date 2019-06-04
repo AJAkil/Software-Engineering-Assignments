@@ -7,5 +7,6 @@ abstract class Computers {
 
     abstract double getScreenWidth();
     abstract double getScreenHeight();
-
+    abstract String getCPUname();
+    abstract String getMMUname();
 }
