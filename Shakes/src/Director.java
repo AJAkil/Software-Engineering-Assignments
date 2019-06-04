@@ -1,8 +1,24 @@
 public class Director {
 
-    Shakes shakebuilder;
+    private Shakes shakebuilder;
 
-    public void produceShake(Shakes shake){
+    public void milkChanger(String milktype) {
+        shakebuilder.changeMilk(milktype);
+    }
+
+    public void toppingsAdder(String toppings) {
+        shakebuilder.Toppings(toppings);
+    }
+
+    public Shakes getShake() {
+        return shakebuilder;
+    }
+
+    public void setShake(Shakes shake) {
+        this.shakebuilder = shake;
+    }
+
+    public void produceShake(Shakes shake) {
 
         shakebuilder = shake;
 
