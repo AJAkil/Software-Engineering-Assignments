@@ -1,0 +1,1 @@
+ComputerB,Square,100

@@ -1,0 +1,1 @@
+ComputerA,Circle,10
