@@ -183,7 +183,7 @@ public class Client {
                         milkOptions();
                         addingMilk(director);
                         addingToppings(director);
-                        director.produceShake(shakeobj);
+                        director.produceShake();
                         Orders.add(director.getShake());
 
                     } else if (menuChoice.equals("2")) {
@@ -195,7 +195,7 @@ public class Client {
                         milkOptions();
                         addingMilk(director);
                         addingToppings(director);
-                        director.produceShake(shakeobj);
+                        director.produceShake();
                         Orders.add(director.getShake());
 
                     } else if (menuChoice.equals("3")) {
@@ -207,7 +207,7 @@ public class Client {
                         milkOptions();
                         addingMilk(director);
                         addingToppings(director);
-                        director.produceShake(shakeobj);
+                        director.produceShake();
                         Orders.add(director.getShake());
 
                     } else if (menuChoice.equals("4")) {
@@ -219,7 +219,7 @@ public class Client {
                         milkOptions();
                         addingMilk(director);
                         addingToppings(director);
-                        director.produceShake(shakeobj);
+                        director.produceShake();
                         Orders.add(director.getShake());
 
                     } else if (menuChoice.equals("5")) {
@@ -231,7 +231,7 @@ public class Client {
                         milkOptions();
                         addingMilk(director);
                         addingToppings(director);
-                        director.produceShake(shakeobj);
+                        director.produceShake();
                         Orders.add(director.getShake());
 
                     } else if (menuChoice.equalsIgnoreCase("E")) {
@@ -257,7 +257,7 @@ public class Client {
                                 System.out.println();
                             }
 
-                            System.out.println("TOTAL: " + totalBill);
+                            System.out.println("TOTAL: Tk" + totalBill);
                             System.out.println("################ xxxx ################" + "\n");
 
                             checker = countOrder;
@@ -305,7 +305,7 @@ public class Client {
                                     System.out.println();
                                 }
 
-                                System.out.println("TOTAL: " + totalBill);
+                                System.out.println("TOTAL: Tk" + totalBill);
                                 System.out.println("################ xxxx ################" + "\n");
 
                                 checker = countOrder;

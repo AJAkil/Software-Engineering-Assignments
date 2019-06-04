@@ -18,9 +18,7 @@ public class Director {
         this.shakebuilder = shake;
     }
 
-    public void produceShake(Shakes shake) {
-
-        shakebuilder = shake;
+    public void produceShake() {
 
         shakebuilder.addName();
         shakebuilder.addMilk();
