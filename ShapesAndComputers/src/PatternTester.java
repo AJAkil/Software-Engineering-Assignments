@@ -12,8 +12,10 @@ public class PatternTester {
         return true;
     }
 
-    public static boolean checkForTriangle() {
+    public static boolean checkForTriangle(double screenHeight, double area,double side2) {
 
+        double height = (area*2)/(side2);
+        if(height>screenHeight) return false;
         return true;
     }
 
@@ -36,10 +38,10 @@ public class PatternTester {
         DecimalFormat df = new DecimalFormat("#.####");
         df.setRoundingMode(RoundingMode.CEILING);
 
-        System.out.println("The Shape Name: " + shapeName);
-        System.out.println("The Screen Resolution: " + a + "X" + b);
-        System.out.println("The Area: " + df.format(area));
-        System.out.println("The Perimeter: " + df.format(perimeter));
+        System.out.println("Shape Name: " + shapeName);
+        System.out.println("Resolution: " + a + "X" + b);
+        System.out.println("Area: " + df.format(area));
+        System.out.println("Perimeter: " + df.format(perimeter));
 
     }
 
@@ -47,75 +49,100 @@ public class PatternTester {
 
         if (input[1].equalsIgnoreCase("Circle")) {
 
-            double radius = Double.parseDouble(input[2]);
-            Circle cobj = new Circle(radius);
+            if (input.length == 3) {
+                double radius = Double.parseDouble(input[2]);
+                Circle cobj = new Circle(radius);
 
-            if (checkForCircle(compObj.screenWidth, compObj.screenHeight, radius)) {
+                if (checkForCircle(compObj.screenWidth, compObj.screenHeight, radius)) {
 
-                double area = cobj.Area();
-                double perimeter = cobj.Perimeter();
-                printOutput("Circle", compObj.screenWidth, compObj.screenHeight, area, perimeter);
+                    double area = cobj.Area();
+                    double perimeter = cobj.Perimeter();
+                    printOutput("Circle", compObj.screenWidth, compObj.screenHeight, area, perimeter);
+
+                } else {
+                    System.out.println("The Shape is too large to fit in the screen of "+compObj.getName()+".");
+                }
 
             } else {
-                System.out.println("The Shape is too large to fit in the screen of the Computer");
+                System.out.println("Too few or too many input.");
             }
+
 
         } else if (input[1].equalsIgnoreCase("Rectangle")) {
 
-            double length = Double.parseDouble(input[2]);
-            double breadth = Double.parseDouble(input[3]);
-            Rectangle robj = new Rectangle(length, breadth);
+            if (input.length == 4) {
 
-            if (checkForRectangle(compObj.screenWidth, compObj.screenHeight, length, breadth)) {
-                double area = robj.Area();
-                double perimeter = robj.Perimeter();
-                printOutput("Rectangle", compObj.screenWidth, compObj.screenHeight, area, perimeter);
+                double length = Double.parseDouble(input[2]);
+                double breadth = Double.parseDouble(input[3]);
+                Rectangle robj = new Rectangle(length, breadth);
+
+                if (checkForRectangle(compObj.screenWidth, compObj.screenHeight, length, breadth)) {
+                    double area = robj.Area();
+                    double perimeter = robj.Perimeter();
+                    printOutput("Rectangle", compObj.screenWidth, compObj.screenHeight, area, perimeter);
+
+                } else {
+                    System.out.println("The Shape is too large to fit in the screen of "+compObj.getName()+".");
+                }
 
             } else {
-                System.out.println("The Shape is too large to fit in the screen of the Computer");
+                System.out.println("Too few or too many input.");
             }
 
         } else if (input[1].equalsIgnoreCase("Square")) {
 
-            double length = Double.parseDouble(input[2]);
-            Square sobj = new Square(length);
+            if (input.length == 3) {
 
-            if (checkForSquare(compObj.screenWidth, compObj.screenHeight, length)) {
+                double length = Double.parseDouble(input[2]);
+                Square sobj = new Square(length);
 
-                double area = sobj.Area();
-                double perimeter = sobj.Perimeter();
-                printOutput("Square", compObj.screenWidth, compObj.screenHeight, area, perimeter);
+                if (checkForSquare(compObj.screenWidth, compObj.screenHeight, length)) {
+
+                    double area = sobj.Area();
+                    double perimeter = sobj.Perimeter();
+                    printOutput("Square", compObj.screenWidth, compObj.screenHeight, area, perimeter);
+
+                } else {
+                    System.out.println("The Shape is too large to fit in the screen of "+compObj.getName()+".");
+                }
 
             } else {
-                System.out.println("The Shape is too large to fit in the screen of the Computer");
+                System.out.println("Too few or too many input.");
             }
+
 
         } else if (input[1].equalsIgnoreCase("Triangle")) {
 
-            double side1 = Double.parseDouble(input[2]);
-            double side2 = Double.parseDouble(input[3]);
-            double side3 = Double.parseDouble(input[4]);
+            if (input.length == 5) {
 
-            double sum1 = side1 + side2;
-            double sum2 = side2 + side3;
-            double sum3 = side3 + side1;
+                double side1 = Double.parseDouble(input[2]);
+                double side2 = Double.parseDouble(input[3]);
+                double side3 = Double.parseDouble(input[4]);
 
-            if ((sum1 < side3) || (sum2 < side1) || (sum3 < side2)) {
-                System.out.println("The Input is not of a valid triangle");
-            } else {
+                double sum1 = side1 + side2;
+                double sum2 = side2 + side3;
+                double sum3 = side3 + side1;
 
-                Triangle tobj = new Triangle(side1, side2, side3);
-
-                if (checkForTriangle()) {
-                    double area = tobj.Area();
-                    double perimeter = tobj.Perimeter();
-                    printOutput("Rectangle", compObj.screenWidth, compObj.screenHeight, area, perimeter);
+                if ((sum1 <= side3) || (sum2 <= side1) || (sum3 <= side2)) {
+                    System.out.println("The Input is not of a valid triangle.");
                 } else {
-                    System.out.println("The Shape is too large to fit in the screen of the Computer");
+
+                    Triangle tobj = new Triangle(side1, side2, side3);
+                    double area = tobj.Area();
+
+                    if (checkForTriangle(compObj.screenHeight,area,side2)) {
+                        double perimeter = tobj.Perimeter();
+                        printOutput("Triangle", compObj.screenWidth, compObj.screenHeight, area, perimeter);
+                    } else {
+                        System.out.println("The Shape is too large to fit in the screen of "+compObj.getName()+".");
+                    }
                 }
+            } else {
+                System.out.println("Too few or too many input.");
             }
+
         } else {
-            System.out.println("Wrong Shape Input");
+            System.out.println("Wrong Shape Input. The shape does not exist in the database.");
         }
 
     }
@@ -144,27 +171,26 @@ public class PatternTester {
 
         ComputerFactory cmpfactory = new ComputerFactory();
         Computers compObj;
-        String[] input = getInputFromFile("input1.txt");
+        String userchoice;
 
-        if (input[0].equalsIgnoreCase("ComputerA")) {
+        for (int i = 0; i < 10; i++) {
 
-            compObj = cmpfactory.getComputer("ComputerA");
-            ProcessShape(input, compObj);
+            String inpname = "input" + (i + 1);
+            String[] input = getInputFromFile(inpname + ".txt");
+            System.out.println("#" + inpname);
+            userchoice = input[0];
 
-        } else if (input[0].equalsIgnoreCase("computerB")) {
+            if(!(userchoice.equalsIgnoreCase("ComputerA")||userchoice.equalsIgnoreCase("ComputerB")||userchoice.equalsIgnoreCase("ComputerC"))){
 
-            compObj = cmpfactory.getComputer("ComputerA");
-            ProcessShape(input, compObj);
+                System.out.println("Wrong Name of computer, such a computer does not exist.");
+            }else{
 
-        } else if (input[0].equalsIgnoreCase("computerC")) {
+                compObj = cmpfactory.getComputer(userchoice);
+                ProcessShape(input,compObj);
+            }
 
-            compObj = cmpfactory.getComputer("ComputerA");
-            ProcessShape(input, compObj);
-
-        } else {
-            System.out.println("Wrong Name of computer, such a computer does not exist.");
+            System.out.println();
         }
-
     }
 
 }

@@ -28,4 +28,9 @@ public class ComputerB extends Computers {
     String getMMUname() {
         return MMU.getMMUname();
     }
+
+    @Override
+    String getName() {
+        return "ComputerB";
+    }
 }

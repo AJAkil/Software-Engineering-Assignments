@@ -1,0 +1,1 @@
+ComputerA,Square,1000
