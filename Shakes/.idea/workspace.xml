@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="301d2192-a919-47a4-b8d9-c846d84c1872" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Shakes/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Shakes/Client.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Shakes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Shakes.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ShapesAndComputers/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ShapesAndComputers/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ShapesAndComputers/out/production/ShapesAndComputers/PatternTester.class" beforeDir="false" afterPath="$PROJECT_DIR$/../ShapesAndComputers/out/production/ShapesAndComputers/PatternTester.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ShapesAndComputers/src/PatternTester.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ShapesAndComputers/src/PatternTester.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ShapesAndComputers/src/Shape.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ShapesAndComputers/src/Shape.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ShapesDrawingAbstractFactory/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ShapesDrawingAbstractFactory/.idea/workspace.xml" afterDir="false" />
