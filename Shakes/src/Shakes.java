@@ -6,8 +6,6 @@ abstract class Shakes {
     protected String ingredient1;
     protected String ingredient2;
     protected String topping1;
-    protected String topping2;
-
 
     abstract void addName();
     abstract void addMilk();
