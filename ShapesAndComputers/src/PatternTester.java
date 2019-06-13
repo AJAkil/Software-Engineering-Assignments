@@ -53,14 +53,14 @@ public class PatternTester {
                 double radius = Double.parseDouble(input[2]);
                 Circle cobj = new Circle(radius);
 
-                if (checkForCircle(compObj.screenWidth, compObj.screenHeight, radius)) {
+                if (checkForCircle(compObj.getScreenWidth(), compObj.getScreenHeight(), radius)) {
 
                     double area = cobj.Area();
                     double perimeter = cobj.Perimeter();
-                    printOutput("Circle", compObj.screenWidth, compObj.screenHeight, area, perimeter);
+                    printOutput("Circle", compObj.getScreenWidth(), compObj.getScreenHeight(), area, perimeter);
 
                 } else {
-                    System.out.println("The Shape is too large to fit in the screen of "+compObj.getName()+".");
+                    System.out.println("The Circle of radius = "+radius+" is too large to fit in the screen of "+compObj.getName()+".");
                 }
 
             } else {
@@ -76,13 +76,13 @@ public class PatternTester {
                 double breadth = Double.parseDouble(input[3]);
                 Rectangle robj = new Rectangle(length, breadth);
 
-                if (checkForRectangle(compObj.screenWidth, compObj.screenHeight, length, breadth)) {
+                if (checkForRectangle(compObj.getScreenWidth(), compObj.getScreenHeight(), length, breadth)) {
                     double area = robj.Area();
                     double perimeter = robj.Perimeter();
-                    printOutput("Rectangle", compObj.screenWidth, compObj.screenHeight, area, perimeter);
+                    printOutput("Rectangle", compObj.getScreenWidth(), compObj.getScreenHeight(), area, perimeter);
 
                 } else {
-                    System.out.println("The Shape is too large to fit in the screen of "+compObj.getName()+".");
+                    System.out.println("The Rectangle of length = "+length+" and breadth = "+breadth+" is too large to fit in the screen of "+compObj.getName()+".");
                 }
 
             } else {
@@ -96,14 +96,14 @@ public class PatternTester {
                 double length = Double.parseDouble(input[2]);
                 Square sobj = new Square(length);
 
-                if (checkForSquare(compObj.screenWidth, compObj.screenHeight, length)) {
+                if (checkForSquare(compObj.getScreenWidth(), compObj.getScreenHeight(), length)) {
 
                     double area = sobj.Area();
                     double perimeter = sobj.Perimeter();
-                    printOutput("Square", compObj.screenWidth, compObj.screenHeight, area, perimeter);
+                    printOutput("Square", compObj.getScreenWidth(), compObj.getScreenHeight(), area, perimeter);
 
                 } else {
-                    System.out.println("The Shape is too large to fit in the screen of "+compObj.getName()+".");
+                    System.out.println("The Square of length = "+length+" is too large to fit in the screen of "+compObj.getName()+".");
                 }
 
             } else {
@@ -130,11 +130,11 @@ public class PatternTester {
                     Triangle tobj = new Triangle(side1, side2, side3);
                     double area = tobj.Area();
 
-                    if (checkForTriangle(compObj.screenHeight,area,side2)) {
+                    if (checkForTriangle(compObj.getScreenHeight(),area,side2)) {
                         double perimeter = tobj.Perimeter();
-                        printOutput("Triangle", compObj.screenWidth, compObj.screenHeight, area, perimeter);
+                        printOutput("Triangle", compObj.getScreenWidth(), compObj.getScreenHeight(), area, perimeter);
                     } else {
-                        System.out.println("The Shape is too large to fit in the screen of "+compObj.getName()+".");
+                        System.out.println("The triangle of sides "+side1+" "+side2+" "+side3+" is too large to fit in the screen of "+compObj.getName()+".");
                     }
                 }
             } else {
@@ -173,7 +173,7 @@ public class PatternTester {
         Computers compObj;
         String userchoice;
 
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 11; i++) {
 
             String inpname = "input" + (i + 1);
             String[] input = getInputFromFile(inpname + ".txt");
